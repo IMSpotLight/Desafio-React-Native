@@ -19,7 +19,7 @@ const Home = ({navigation}) => {
                             </ButtonText>
                         </StyledButton>
                     <Line />
-                        <StyledButton onPress={() => {}}>
+                        <StyledButton onPress={() => navigation.navigate('Medicação')}>
                             <ButtonText>
                                 Medicação
                             </ButtonText>

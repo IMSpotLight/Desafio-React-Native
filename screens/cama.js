@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import { TouchableWithoutFeedback, Keyboard, Text, Button, View} from 'react-native';
+import { TouchableWithoutFeedback, Keyboard, TextInput, Button, View, StyleSheet} from 'react-native';
 import { HomeContainer, InnerContainer, PageTitle, SubTitle, StyledPopUp, PopUpText, StyledFormArea } from "../components/style";
 import { StatusBar } from "expo-status-bar";
 import Modal from "react-native-modal";
+import styled from "styled-components";
 
 const Colors = {
     primary: "#ffffff",
@@ -18,7 +19,7 @@ const {primary, secondary, tertiary, darkLight, brand, green, red} = Colors;
 
 const Cama = () => {
 
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalVisible, setIsModalVisible] = React.useState(false);
 
     const handleModal = () => setIsModalVisible(() => !isModalVisible); // Pressing the button will call handleModal and return the opposite state.
 
@@ -35,12 +36,17 @@ const Cama = () => {
                         <PageTitle>Cama 1</PageTitle>
                         <SubTitle>Francisco de Almeida</SubTitle>
                         <StyledFormArea>
-                            <StyledPopUp>
+                            <StyledPopUp onPress={handleModal}>
                                 <PopUpText>Frequência Cardíaca</PopUpText>
                                 <Modal isVisible={isModalVisible}>
-                                    <View style={{ flex: 1 }}>
-                                        <Text>Hello!</Text>
-                                        <Button title="Hide Modal" onPress={handleModal}/>
+                                    <View style={{
+                                                    flex: 1,
+                                                    flexDirection: 'column',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center'}}>
+                                        <TextInput style={styles.TextBox} placeholder="BPM" textAlign="center"></TextInput>
+                                        <Button title="Guardar" onPress={handleModal}/>
+                                        <Button title="Cancelar" onPress={handleModal}/>
                                     </View>
                                 </Modal>
                             </StyledPopUp>
@@ -66,5 +72,21 @@ const Cama = () => {
         </TouchableWithoutFeedback>
     );
 }
+
+const styles = StyleSheet.create({
+    TextBox: {
+        padding: 15,
+        backgroundColor: Colors.primary,
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        borderRadius: 10,
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderColor: Colors.brand,
+        marginVertical: 10,
+        height: 60,
+        width: 100,
+    },
+})
 
 export default Cama;

@@ -18,6 +18,7 @@ const RootStack = () => {
                 <DrawerNavigator.Screen name="Registos" component={Registo} />
                 <DrawerNavigator.Screen name="Cama 1" component={Cama} />
                 <DrawerNavigator.Screen name="Medicação" component={Medicação} />
+                <DrawerNavigator.Screen name="maps" component={maps} />
             </DrawerNavigator.Navigator>
         </NavigationContainer>
     )

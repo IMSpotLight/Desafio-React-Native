@@ -24,6 +24,11 @@ const Home = ({navigation}) => {
                                 Medicação
                             </ButtonText>
                         </StyledButton>
+                        <StyledButton onPress={() => navigation.navigate('maps')}>
+                            <ButtonText>
+                                Maps
+                            </ButtonText>
+                        </StyledButton>
                     </StyledFormArea>
                 </HomeContainer>
             </InnerContainer>
